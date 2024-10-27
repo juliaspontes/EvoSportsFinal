@@ -1,0 +1,55 @@
+/* Navbar.css */
+
+.nav {
+  background-color: #EFEFEF;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: auto;
+  color: #000;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav li {
+  margin-left: 20px;
+}
+
+.nav a {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  font-family: 'Jockey One', sans-serif;
+  font-size: 24px; /* Ajuste o tamanho conforme necessário */
+  /* Outros estilos que você já tenha */
+}
+
+.search-input {
+  background-color: #EFEFEF; /* Cor de fundo bege */
+  color: #fff; /* Cor do texto (opcional) */
+  padding: 10px; /* Adiciona algum padding */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Arredonda os cantos (opcional) */
+  width: 200px; /* Largura do campo (ajuste conforme necessário) */
+}
+
+.second-nav-search {
+  display: flex; /* Para facilitar o alinhamento se necessário */
+}

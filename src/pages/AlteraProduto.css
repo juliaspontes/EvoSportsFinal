@@ -1,0 +1,91 @@
+/* src/pages/AlteraProduto.css */
+
+.altera-produto-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh; /* Garante que o contêiner principal ocupe pelo menos a altura total da tela */
+}
+
+.altera-new-product-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  width: 150px;
+}
+
+.altera-new-product-button:hover {
+  background-color: #444;
+}
+
+.altera-product-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.altera-product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: transparent; /* Remove a linha de divisão */
+}
+
+.altera-product-description {
+  background-color: #EFEFEF; /* Cinza claro */
+  padding: 8px;
+  border-radius: 5px;
+  flex: 1; /* Faz a descrição ocupar o espaço disponível */
+  margin-right: 10px; /* Espaço entre a descrição e o botão */
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.product-name-label {
+  flex: 1;
+  display: flex;
+}
+
+.product-name-input {
+  width: 100%; /* O campo ocupará todo o espaço disponível */
+  padding: 10px; /* Espaçamento interno */
+  border: 1px solid #EFEFEF; /* Borda cinza */
+  border-radius: 20px; /* Bordas bem arredondadas */
+  background-color: #f0f0f0; /* Fundo cinza claro */
+  font-size: 1em; /* Tamanho da fonte */
+  text-align: left; /* Alinhamento do texto à esquerda */
+  cursor: default; /* Cursor padrão já que é read-only */
+  margin-right: 10px; /* Espaço entre o campo e o botão */
+}
+
+.altera-edit-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px; /* Ajuste o padding para deixar o botão maior */
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 20px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease;
+}
+
+.altera-edit-button:hover {
+  background-color: #444;
+}

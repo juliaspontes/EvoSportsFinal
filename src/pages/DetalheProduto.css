@@ -1,0 +1,61 @@
+/* src/pages/DetalheProduto.css */
+
+.product-details-container {
+  display: flex;
+  align-items: flex-start; /* Alinha itens ao topo do contêiner */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  padding: 20px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto; /* Adiciona margem superior e inferior */
+}
+
+.product-image {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centraliza a imagem horizontalmente */
+  align-items: center;
+  max-width: 400px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-info {
+  flex: 2;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo em coluna */
+  padding: 20px; /* Adiciona padding interno */
+  align-items: center; /* Centraliza horizontalmente os itens dentro da coluna */
+}
+
+.product-info h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-align: center; /* Garante que o título fique centralizado */
+}
+
+.product-info p {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  text-align: center; /* Garante que a descrição fique centralizada */
+}
+
+.buy-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px; /* Ajusta o padding para um botão menor */
+  font-size: 1em; /* Tamanho da fonte */
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Espaço acima do botão */
+  width: 150px; /* Define uma largura fixa para o botão */
+  text-align: center; /* Centraliza o texto no botão */
+  display: block; /* Faz o botão ser tratado como um bloco para centralização */
+}

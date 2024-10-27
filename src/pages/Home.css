@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navegação Principal */
+.nav {
+  background-color: #EFEFEF;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: auto;
+  color: #000;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav li {
+  margin-left: 20px;
+}
+
+.nav a {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Segunda Navegação */
+.second-nav {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: center;
+}
+
+.second-nav-logo {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-right: 20px;
+}
+
+.second-nav-links {
+  display: flex;
+  gap: 50px;
+  margin: 0 auto;
+}
+
+.second-nav-links a {
+  color: #000;
+  text-decoration: none;
+}
+
+.second-nav-links a:hover {
+  text-decoration: underline;
+}
+
+.second-nav-search {
+  margin-left: 20px;
+}
+
+.second-nav-search input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+/* Carousel */
+.carousel-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.carousel-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+}
+
+.carousel-text {
+  margin-top: 20px;
+}
+
+.carousel-text h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.carousel-text p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Produtos */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 20px; /* Espaçamento entre os produtos */
+  margin: 20px 0; /* Margem superior e inferior */
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column; /* Imagem em cima da descrição */
+  align-items: flex-start; /* Alinha a descrição à esquerda */
+  background-color: transparent; /* Garante que não haja fundo */
+  border: none; /* Remove bordas */
+}
+
+.product-image {
+  width: 100%; /* Ajusta a imagem para ocupar 100% da largura do item */
+  height: auto; /* Mantém a proporção da imagem */
+  border: none; /* Remove qualquer borda */
+}
+
+.product-info {
+  text-align: left; /* Alinha o texto à esquerda */
+  width: 100%; /* Garante que o texto ocupe toda a largura */
+  margin-top: 10px; /* Espaço entre a imagem e a descrição */
+}
+
+.product-info h3,
+.product-info p {
+  margin: 0; /* Remove margens para evitar espaçamentos indesejados */
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center; 
+  margin: 20px 0; 
+}
+
+.pagination-button {
+  color: #000; 
+  text-decoration: none; 
+  margin: 0 10px; 
+  padding: 10px 15px; 
+  border: none; 
+  background: none; 
+  cursor: pointer; 
+}
+
+.pagination-button:hover {
+  text-decoration: underline; 
+}
+
+/* Footer */
+.footer {
+  background-color: #000; 
+  color: #fff; /* Cor do texto branca */
+  padding: 20px 0; /* Espaçamento interno do footer */
+  width: 100%; /* Garante que o footer ocupe toda a largura da página */
+}
+
+.footer-content {
+  display: flex; /* Usa flexbox para layout */
+  justify-content: space-between; /* Espaça os itens dentro do footer */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  padding: 0 20px; /* Espaçamento interno horizontal */
+}
+
+.footer-left, .footer-right {
+  margin: 0; /* Remove a margem padrão */
+}
+
+.title {
+  font-family: 'Jockey One', sans-serif; /* Adicione a fonte */
+  font-size: 2.5rem; /* Ajuste o tamanho conforme necessário */
+  color: #000000; /* Altere a cor se necessário */
+}
+
+.title1 {
+  font-family: 'Jockey One', sans-serif; /* Adicione a fonte */
+  font-size: 1.5rem; /* Ajuste o tamanho conforme necessário */
+  color: #000000; /* Altere a cor se necessário */
+}

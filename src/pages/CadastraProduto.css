@@ -1,0 +1,93 @@
+/* src/pages/CadastrarProduto.css */
+
+.cadastrar-produto-container {
+  padding: 20px;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-row label {
+  flex: 1;
+}
+
+.product-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-form input,
+.product-form textarea,
+.product-form select {
+  padding: 8px;
+  font-size: 1em;
+  margin-top: 5px;
+  border-radius: 20px; /* Arredondar os campos */
+  border: 1px solid #ccc; /* Borda cinza clara */
+  background-color: #f9f9f9; /* Fundo cinza claro */
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões no canto direito */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-button,
+.delete-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover,
+.delete-button:hover {
+  background-color: #444;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #000; /* Cor para o link "Home" */
+}
+
+.current-page {
+  color: #888; /* Cor mais clara para o texto "Cadastrar" */
+}
+
+.styled-input {
+  border: 1px solid #ddd; /* Borda padrão */
+  border-radius: 20px; /* Borda arredondada */
+  padding: 10px; /* Espaçamento interno */
+  width: 100%; /* Largura total */
+  margin-top: 5px; /* Espaçamento acima do campo */
+  background-color: #f0f0f0; /* Cor de fundo cinza claro */
+}
+
+.styled-input:focus {
+  border-color: #000; /* Muda a cor da borda ao focar */
+  outline: none; /* Remove a borda padrão do navegador */
+}
+

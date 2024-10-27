@@ -1,0 +1,12 @@
+/* src/components/Layout.css */
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos a altura da tela */
+  }
+  
+  main {
+    flex: 0.5; /* Faz com que o conteúdo principal expanda para ocupar o espaço disponível */
+  }
+  

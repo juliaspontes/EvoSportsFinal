@@ -1,0 +1,15 @@
+/* src/components/Breadcrumbs.css */
+.breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #000; /* Cor para o link "Home" */
+}
+
+.breadcrumbs span {
+  margin: 0 5px;
+  color: #888; /* Cor para a página atual */
+}
