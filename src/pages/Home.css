@@ -114,15 +114,17 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 colunas */
   gap: 20px; /* Espaçamento entre os produtos */
-  margin: 20px 0; /* Margem superior e inferior */
+  margin: 20px auto; /* Margem superior e inferior e centraliza horizontalmente */
+  max-width: 1200px; /* Limite a largura total do contêiner */
 }
 
 .product-item {
   display: flex;
   flex-direction: column; /* Imagem em cima da descrição */
-  align-items: flex-start; /* Alinha a descrição à esquerda */
+  align-items: center; /* Alinha a descrição ao centro */
   background-color: transparent; /* Garante que não haja fundo */
   border: none; /* Remove bordas */
+  text-align: center; /* Centraliza o texto */
 }
 
 .product-image {

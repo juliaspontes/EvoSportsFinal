@@ -1,5 +1,3 @@
-/* src/pages/DetalheProduto.css */
-
 .product-details-container {
   display: flex;
   align-items: flex-start; /* Alinha itens ao topo do contêiner */
@@ -29,7 +27,7 @@
   max-width: 600px;
   display: flex;
   flex-direction: column; /* Organiza o conteúdo em coluna */
-  padding: 20px; /* Adiciona padding interno */
+  padding: 35px; /* Adiciona padding interno */
   align-items: center; /* Centraliza horizontalmente os itens dentro da coluna */
 }
 
@@ -41,7 +39,7 @@
 
 .product-info p {
   font-size: 1.2em;
-  margin-bottom: 15px;
+  margin-bottom: 25px; /* Aumenta o espaço entre os campos */
   text-align: center; /* Garante que a descrição fique centralizada */
 }
 
@@ -54,7 +52,7 @@
   cursor: pointer;
   border-radius: 20px;
   transition: background-color 0.3s ease;
-  margin-top: 20px; /* Espaço acima do botão */
+  margin-top: 25px; /* Espaço acima do botão */
   width: 150px; /* Define uma largura fixa para o botão */
   text-align: center; /* Centraliza o texto no botão */
   display: block; /* Faz o botão ser tratado como um bloco para centralização */

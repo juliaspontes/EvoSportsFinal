@@ -1,19 +1,17 @@
-// src/pages/CadastraProduto.js
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './CadastraProduto.css';
 
-function CadastrarProduto() {
+function CadastrarProduto({ fetchProdutos }) {
   const location = useLocation();
-  const produto = location.state?.produto; // Acessa o produto passado
+  const produto = location.state?.produto;
 
   const [formData, setFormData] = useState({
     titulo: produto ? produto.nomeProduto : '',
     preco: produto ? produto.valorProduto : '',
     descricao: produto ? produto.descricaoProduto : '',
     tamanho: produto ? produto.tamanhoProduto : '',
-    status: produto ? produto.statusProduto : '',
+    status: produto ? produto.statusProduto : 1,
     qrcode: produto ? produto.qrCodeProduto : '',
     imagem: produto ? produto.imgProduto : ''
   });
@@ -27,7 +25,7 @@ function CadastrarProduto() {
     e.preventDefault();
 
     try {
-      const method = produto ? 'PUT' : 'POST'; // Se um produto existe, use PUT para editar
+      const method = produto ? 'PUT' : 'POST';
       const url = produto 
         ? `https://apoleon.com.br/api/produto/${produto.id}` 
         : 'https://apoleon.com.br/api/produto';
@@ -52,9 +50,8 @@ function CadastrarProduto() {
         throw new Error('Erro ao cadastrar/alterar produto');
       }
 
-      const result = await response.json();
-      console.log('Produto salvo com sucesso:', result);
       alert('Produto salvo com sucesso!');
+      fetchProdutos(); // Atualiza a lista de produtos após salvar
 
       // Limpar o formulário após o envio
       setFormData({
@@ -62,13 +59,41 @@ function CadastrarProduto() {
         preco: '',
         descricao: '',
         tamanho: '',
-        status: '',
+        status: 1,
         qrcode: '',
         imagem: ''
       });
-      
     } catch (error) {
       console.error('Erro ao salvar produto:', error);
+      alert(error.message);
+    }
+  };
+
+  const handleToggleStatus = async () => {
+    const newStatus = formData.status === 1 ? 0 : 1; // Alterna entre 0 e 1
+    try {
+      const response = await fetch(`https://apoleon.com.br/api/produto/${produto.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          statusProduto: newStatus,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao atualizar status do produto');
+      }
+
+      // Atualiza o estado local imediatamente
+      setFormData(prevData => ({ ...prevData, status: newStatus }));
+
+      alert(`Produto ${newStatus === 1 ? 'ativado' : 'desativado'} com sucesso. Salve a alteração!`);
+      fetchProdutos(); // Atualiza a lista de produtos após a alteração de status
+    } catch (error) {
+      console.error('Erro ao atualizar status do produto:', error);
       alert(error.message);
     }
   };
@@ -100,24 +125,25 @@ function CadastrarProduto() {
             <input type="text" name="tamanho" value={formData.tamanho} onChange={handleChange} className="styled-input" />
           </label>
           <label>
-            Status
-            <select name="status" value={formData.status} onChange={handleChange} className="styled-input">
-              <option value="">Selecione</option>
-              <option value="1">Ativo</option>
-              <option value="0">Inativo</option>
-            </select>
-          </label>
-          <label>
             QR Code
             <input type="text" name="qrcode" value={formData.qrcode} onChange={handleChange} className="styled-input" />
           </label>
+          <label>
+            Imagem
+            <input type="text" name="imagem" value={formData.imagem} onChange={handleChange} className="styled-input" />
+          </label>
         </div>
-        <label>
-          Imagem
-          <input type="text" name="imagem" value={formData.imagem} onChange={handleChange} className="styled-input" />
-        </label>
         <div className="button-container">
-          <button type="submit" className="save-button">{produto ? 'Alterar' : 'Salvar'}</button>
+          <button type="submit" className="save-button">{produto ? 'Salvar' : 'Salvar'}</button>
+          {produto && (
+            <button 
+              type="button" 
+              className="save-button"
+              onClick={handleToggleStatus}
+            >
+              {formData.status === 1 ? 'Desativar' : 'Ativar'}
+            </button>
+          )}
         </div>
       </form>
     </div>

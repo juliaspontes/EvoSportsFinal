@@ -1,47 +1,74 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './DetalheProduto.css';
 
-function DetalheProduto({ match }) {
+function DetalheProduto() {
+  const { id } = useParams(); // Acessa o ID a partir da URL
   const [produto, setProduto] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const produtoId = match.params.id; // Obtendo o ID do produto da rota
-
   useEffect(() => {
     const fetchProduto = async () => {
-      setLoading(true); // Inicia o carregamento
+      if (!id) {
+        setError('Produto não encontrado!');
+        setLoading(false);
+        return;
+      }
+
       try {
-        const response = await fetch(`https://apoleon.com.br/api/produtos/${produtoId}`);
+        const response = await fetch(`https://apoleon.com.br/api/produto/${id}`);
+
         if (!response.ok) {
-          throw new Error('Erro ao buscar o produto');
+          throw new Error('Erro ao buscar produto');
         }
+
         const data = await response.json();
-        setProduto(data);
-      } catch (err) {
-        setError(err.message);
+        console.log('Dados retornados da API:', data); // Verifique a resposta da API
+
+        if (!data) {
+          setError('Produto não encontrado!');
+        } else {
+          setProduto(data.date);
+        }
+      } catch (error) {
+        setError(error.message);
       } finally {
-        setLoading(false); // Finaliza o carregamento
+        setLoading(false);
       }
     };
 
-    fetchProduto(); // Chama a função para buscar o produto
-  }, [produtoId]); // Recarrega quando produtoId mudar
+    fetchProduto();
+  }, [id]);
 
-  if (loading) return <div>Carregando...</div>; // Exibe mensagem de carregamento
-  if (error) return <div>Erro: {error}</div>; // Exibe mensagem de erro
-  if (!produto) return <div>Produto não encontrado.</div>; // Validação caso produto seja null
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
-    <div className="product-details-container">
-      <div className="product-image">
-        <img src={produto.imgProduto} alt={produto.nomeProduto} />
-      </div>
-      <div className="product-info">
-        <h1>{produto.nomeProduto}</h1>
-        <p>{produto.descricao}</p>
-        <p><strong>Preço:</strong> R$ {parseFloat(produto.valorProduto).toFixed(2)}</p>
-        <button className="buy-button">Comprar</button>
+    <div>
+      <div className="product-details-container">
+        <div className="product-image">
+          <img src={produto?.imgProduto || "https://via.placeholder.com/400x400"} alt="Produto" />
+        </div>
+        <div className="product-info">
+          <h1>{produto?.nomeProduto || "Nome não disponível"}</h1>
+          <p>{produto?.descricaoProduto || "Descrição não disponível"}</p>
+          <p>
+            <strong>Preço:</strong> R$ {produto?.valorProduto ? parseFloat(produto.valorProduto).toFixed(2) : 'N/A'}
+          </p>
+          <p>
+            <strong>Tamanho:</strong> {produto?.tamanhoProduto || "Tamanho não disponível"}
+          </p>
+          <p>
+            <strong>Status:</strong> {produto?.statusProduto === 1 ? 'Ativo' : 'Inativo'}
+          </p>
+          <button className="buy-button">Comprar</button>
+        </div>
       </div>
     </div>
   );

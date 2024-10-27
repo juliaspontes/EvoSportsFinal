@@ -1,5 +1,3 @@
-// src/pages/AlteraProduto.js
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -8,7 +6,7 @@ import './AlteraProduto.css';
 function AlteraProduto() {
   const navigate = useNavigate(); 
   const [produtos, setProdutos] = useState([]);
-  const [setSelectedProduto] = useState(null);
+  const [selectedProduto, setSelectedProduto] = useState(null); // Correção aqui
 
   useEffect(() => {
     const fetchProdutos = async () => {

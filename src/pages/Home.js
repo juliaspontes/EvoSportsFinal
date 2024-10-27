@@ -8,23 +8,23 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://apoleon.com.br/api/produtos');
-        if (!response.ok) {
-          throw new Error('Erro na rede');
-        }
-        const result = await response.json();
-        setData(result.filter(item => item.statusProduto === 1)); // Filtra produtos ativos
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+  const fetchProdutos = async () => {
+    try {
+      const response = await fetch('https://apoleon.com.br/api/produtos');
+      if (!response.ok) {
+        throw new Error('Erro na rede');
       }
-    };
+      const result = await response.json();
+      setData(result.filter(item => item.statusProduto === 1)); // Filtra produtos ativos
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchProdutos(); // Chama a função para buscar produtos ao montar o componente
   }, []);
 
   if (loading) return <div>Carregando...</div>;
@@ -40,9 +40,9 @@ function Home() {
         </div>
       </div>
       <div className="product-container">
-        {data.map(item => (
+        {data.map((item) => (
           <div className="product-item" key={item.id}>
-            <Link to={`/produto/${item.id}`}>
+            <Link to={`/detalheproduto/${item.id}`}>
               <img src={item.imgProduto} alt={item.nomeProduto} className="product-image" />
             </Link>
             <div className="product-info">
@@ -52,14 +52,6 @@ function Home() {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="pagination">
-        <a href="#anterior" className="pagination-button">Anterior</a>
-        <a href="#1" className="pagination-button">1</a>
-        <a href="#2" className="pagination-button">2</a>
-        <a href="#3" className="pagination-button">3</a>
-        <a href="#proximo" className="pagination-button">Próximo</a>
       </div>
     </div>
   );
