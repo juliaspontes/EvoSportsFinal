@@ -21,8 +21,36 @@ function CadastrarProduto({ fetchProdutos }) {
     setFormData({ ...formData, [name]: value });
   };
 
+  const validateForm = () => {
+    const { titulo, preco, descricao, tamanho, qrcode, imagem } = formData;
+
+    if (!titulo || !preco || !descricao || !tamanho || !qrcode || !imagem) {
+      alert('Todos os campos devem ser preenchidos.'); // Pop-up para erro
+      return false; // Validação falhou
+    }
+    if (isNaN(preco) || Number(preco) < 0) {
+      alert('O preço deve ser um número válido.'); // Pop-up para erro
+      return false; // Validação falhou
+    }
+    if (
+      titulo.length > 30 ||
+      descricao.length > 30 ||
+      tamanho.length > 30 ||
+      qrcode.length > 30 ||
+      imagem.length > 30
+    ) {
+      alert('Todos os campos devem ter no máximo 30 caracteres.'); // Pop-up para erro
+      return false; // Validação falhou
+    }
+
+    return true; // Validação bem-sucedida
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return; // Não prossegue se houver erro
+    }
 
     try {
       const method = produto ? 'PUT' : 'POST';
@@ -108,29 +136,29 @@ function CadastrarProduto({ fetchProdutos }) {
         <div className="form-row">
           <label>
             Título
-            <input type="text" name="titulo" value={formData.titulo} onChange={handleChange} className="styled-input" />
+            <input type="text" name="titulo" value={formData.titulo} onChange={handleChange} className="styled-input" maxLength={30} />
           </label>
           <label>
             Preço
-            <input type="text" name="preco" value={formData.preco} onChange={handleChange} className="styled-input" />
+            <input type="number" name="preco" value={formData.preco} onChange={handleChange} className="styled-input" maxLength={30} />
           </label>
         </div>
         <label>
           Descrição
-          <input name="descricao" value={formData.descricao} onChange={handleChange} className="styled-input" />
+          <input type="text" name="descricao" value={formData.descricao} onChange={handleChange} className="styled-input" maxLength={30} />
         </label>
         <div className="form-row">
           <label>
             Tamanho
-            <input type="text" name="tamanho" value={formData.tamanho} onChange={handleChange} className="styled-input" />
+            <input type="text" name="tamanho" value={formData.tamanho} onChange={handleChange} className="styled-input" maxLength={30} />
           </label>
           <label>
             QR Code
-            <input type="text" name="qrcode" value={formData.qrcode} onChange={handleChange} className="styled-input" />
+            <input type="text" name="qrcode" value={formData.qrcode} onChange={handleChange} className="styled-input" maxLength={30} />
           </label>
           <label>
             Imagem
-            <input type="text" name="imagem" value={formData.imagem} onChange={handleChange} className="styled-input" />
+            <input type="text" name="imagem" value={formData.imagem} onChange={handleChange} className="styled-input" maxLength={30} />
           </label>
         </div>
         <div className="button-container">
