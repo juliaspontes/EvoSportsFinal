@@ -154,11 +154,11 @@ function CadastrarProduto({ fetchProdutos }) {
           </label>
           <label>
             QR Code
-            <input type="text" name="qrcode" value={formData.qrcode} onChange={handleChange} className="styled-input" maxLength={30} />
+            <input type="text" name="qrcode" value={formData.qrcode} onChange={handleChange} className="styled-input" />
           </label>
           <label>
             Imagem
-            <input type="text" name="imagem" value={formData.imagem} onChange={handleChange} className="styled-input" maxLength={30} />
+            <input type="text" name="imagem" value={formData.imagem} onChange={handleChange} className="styled-input" />
           </label>
         </div>
         <div className="button-container">
