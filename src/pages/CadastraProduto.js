@@ -41,7 +41,7 @@ function CadastrarProduto({ fetchProdutos }) {
       return false; // Validação falhou
     }
 
-    return true; // Validação bem-sucedida
+    return true; // Validação bem-sucedidaa
   };
 
   const handleSubmit = async (e) => {
