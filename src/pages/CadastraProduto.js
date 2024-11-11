@@ -36,8 +36,6 @@ function CadastrarProduto({ fetchProdutos }) {
       titulo.length > 30 ||
       descricao.length > 30 ||
       tamanho.length > 30 ||
-      qrcode.length > 30 ||
-      imagem.length > 30
     ) {
       alert('Todos os campos devem ter no máximo 30 caracteres.'); // Pop-up para erro
       return false; // Validação falhou
